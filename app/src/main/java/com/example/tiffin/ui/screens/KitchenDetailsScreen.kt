@@ -17,8 +17,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.tiffin.data.model.Kitchen
 import com.example.tiffin.ui.components.InfoTile
 import com.example.tiffin.ui.components.WeeklyMenuCard
+import com.example.tiffin.ui.viewModel.KitchenUiState
 import com.example.tiffin.ui.viewModel.KitchenViewModel
 
 private val PrimaryGreen = Color(0xFF267A4B)
@@ -27,166 +30,33 @@ private val DarkText = Color(0xFF252525)
 private val GreyText = Color(0xFF777777)
 private val ScreenBackground = Color(0xFFF8F9F6)
 
+private val days = listOf(
+    "Mon" to "Monday", "Tue" to "Tuesday", "Wed" to "Wednesday",
+    "Thu" to "Thursday", "Fri" to "Friday", "Sat" to "Saturday", "Sun" to "Sunday"
+)
 @Composable
 fun KitchenDetailsScreen(
     kitchenId: Int,
     viewModel: KitchenViewModel,
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+    onSubscribeClick: (Int) -> Unit
 ) {
-    val uiState by viewModel.uiState.collectAsState()
-    val kitchen = uiState.kitchens.firstOrNull {
-        it.id == kitchenId
-    }
-    when {
-        uiState.isLoading -> {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                CircularProgressIndicator(color = PrimaryGreen)
-            }
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    when (val state = uiState) {
+        KitchenUiState.Loading -> CenterBox { CircularProgressIndicator(color = PrimaryGreen) }
+        KitchenUiState.Empty -> CenterBox {
+            MessageWithAction("Kitchen not found", "Back", onBackClick)
         }
-
-        uiState.error != null -> {
-            Text(
-                text = uiState.error ?: "Something went wrong"
-            )
+        is KitchenUiState.Error -> CenterBox {
+            MessageWithAction(state.message, "Retry", viewModel::loadKitchens)
         }
-
-        kitchen == null -> {
-            Text("Kitchen not found")
-        }
-
-        else -> {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(ScreenBackground)
-                    .verticalScroll(rememberScrollState())
-                    .padding(16.dp)
-            ) {
-                Surface(
-                    modifier = Modifier
-                        .clickable { onBackClick() },
-                    shape = RoundedCornerShape(14.dp),
-                    color = Color.White,
-                    shadowElevation = 2.dp
-                ) {
-                    Row(
-                        modifier = Modifier.padding(
-                            horizontal = 16.dp,
-                            vertical = 11.dp
-                        ),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.Center
-                    ) {
-                        Text(
-                            text = "←",
-                            fontSize = 22.sp,
-                            color = PrimaryGreen,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Spacer(modifier = Modifier.width(8.dp))
-                        Text(
-                            text = "Back to Kitchens",
-                            color = DarkText,
-                            fontWeight = FontWeight.SemiBold,
-                            fontSize = 14.sp
-                        )
-                    }
-                }
-                Spacer(modifier = Modifier.height(24.dp))
-                Text(
-                    text = kitchen.name,
-                    fontSize = 27.sp,
-                    fontWeight = FontWeight.ExtraBold,
-                    color = DarkText,
-                    style = MaterialTheme.typography.headlineMedium
-                )
-                Spacer(modifier = Modifier.height(6.dp))
-                Text(
-                    text = "Fresh homemade food, made with care",
-                    fontSize = 14.sp,
-                    color = GreyText
-                )
-                Spacer(modifier = Modifier.height(24.dp))
-                Text(
-                    text = "Kitchen Information",
-                    fontSize = 19.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = DarkText
-                )
-                Spacer(modifier = Modifier.height(14.dp))
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    InfoTile(
-                        title = "Cuisine",
-                        value = kitchen.cuisine,
-                        emoji = "🍛",
-                        modifier = Modifier.weight(1f)
-                    )
-
-                    InfoTile(
-                        title = "Price",
-                        value = "₹${kitchen.pricePerTiffin}",
-                        subtitle = "Per tiffin",
-                        emoji = "💰",
-                        modifier = Modifier.weight(1f)
-                    )
-                }
-                Spacer(modifier = Modifier.height(12.dp))
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    InfoTile(
-                        title = "Food Type",
-                        value = if (kitchen.isVeg) "Pure Veg" else "Non-Veg",
-                        emoji = "🥗",
-                        modifier = Modifier.weight(1f)
-                    )
-
-                    InfoTile(
-                        title = "Rating",
-                        value = "${kitchen.rating} / 5",
-                        emoji = "⭐",
-                        modifier = Modifier.weight(1f)
-                    )
-                }
-                Spacer(modifier = Modifier.height(28.dp))
-                Text(
-                    text = "Weekly Menu",
-                    fontSize = 21.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = DarkText
-                )
-                Text(
-                    text = "See what's cooking throughout the week",
-                    fontSize = 13.sp,
-                    color = GreyText
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                val days = listOf(
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                    "Sunday"
-                )
-                days.forEachIndexed { index, day ->
-                    WeeklyMenuCard(
-                        day = day,
-                        meal = kitchen.weeklyMenu[day]
-                            ?: "Menu not available",
-                        dayNumber = index + 1
-                    )
-                    Spacer(modifier = Modifier.height(12.dp))
-                }
-                Spacer(modifier = Modifier.height(16.dp))
+        is KitchenUiState.Success -> {
+            val kitchen = state.kitchens.firstOrNull { it.id == kitchenId }
+            if (kitchen == null) {
+                CenterBox { MessageWithAction("Kitchen not found", "Back", onBackClick) }
+            } else {
+                KitchenDetailsContent(kitchen, onBackClick, onSubscribeClick)
             }
         }
     }
@@ -194,4 +64,58 @@ fun KitchenDetailsScreen(
 
 
 
+
+@Composable
+private fun KitchenDetailsContent(
+    kitchen: Kitchen,
+    onBackClick: () -> Unit,
+    onSubscribeClick: (Int) -> Unit
+) {
+    Scaffold(
+        containerColor = ScreenBackground,
+        bottomBar = {
+            Surface(shadowElevation = 8.dp, color = Color.White) {
+                Button(
+                    onClick = { onSubscribeClick(kitchen.id) },
+                    colors = ButtonDefaults.buttonColors(containerColor = PrimaryGreen),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .navigationBarsPadding()
+                        .padding(16.dp)
+                        .height(52.dp)
+                ) {
+                    Text("Subscribe", fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                }
+            }
+        }
+    ) { padding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+                .verticalScroll(rememberScrollState())
+                .padding(16.dp)
+        ) {
+            Spacer(Modifier.height(24.dp))
+            Text(kitchen.name, fontSize = 27.sp, fontWeight = FontWeight.ExtraBold, color = DarkText)
+            Text("${kitchen.distanceKm} km away", fontSize = 14.sp, color = GreyText)
+
+            Spacer(Modifier.height(24.dp))
+            Text("Kitchen Information", fontSize = 19.sp, fontWeight = FontWeight.Bold, color = DarkText)
+            Spacer(Modifier.height(14.dp))
+
+            Spacer(Modifier.height(28.dp))
+            Text("Weekly Menu", fontSize = 21.sp, fontWeight = FontWeight.Bold, color = DarkText)
+            Spacer(Modifier.height(16.dp))
+            days.forEachIndexed { index, (key, label) ->
+                WeeklyMenuCard(
+                    day = label,
+                    meal = kitchen.weeklyMenu[key] ?: "Menu not available",
+                    dayNumber = index + 1
+                )
+                Spacer(Modifier.height(12.dp))
+            }
+        }
+    }
+}
 
