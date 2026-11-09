@@ -27,7 +27,7 @@ class KitchenViewModel(
         loadKitchens()
     }
 
-    private fun loadKitchens() {
+     fun loadKitchens() {
         viewModelScope.launch {
 
             _uiState.value = KitchenUiState.Loading
