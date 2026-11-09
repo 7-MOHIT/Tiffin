@@ -11,20 +11,18 @@ import kotlinx.coroutines.CancellationException
 class KitchenRepository(
     private val context: Context
 ) {
-    suspend fun getKitchens(): Result<List<Kitchen>> {
-        return withContext(Dispatchers.IO) {
-            try {
-                val jsonString =
-                    context.assets.open("kitchens.json").bufferedReader().use { it.readText() }
-                val kitchens = Json.decodeFromString<List<Kitchen>>(
-                    jsonString
-                )
-                Result.success(kitchens)
-            } catch (e: CancellationException) {
-                throw e
-            } catch (e: Exception) {
-                Result.failure(e)
-            }
+    private val appContext = context.applicationContext
+    private val json = Json { ignoreUnknownKeys = true }
+
+    suspend fun getKitchens(): Result<List<Kitchen>> = withContext(Dispatchers.IO) {
+        try {
+            val text =
+                appContext.assets.open("kitchens.json").bufferedReader().use { it.readText() }
+            Result.success(json.decodeFromString<List<Kitchen>>(text))
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            Result.failure(e)
         }
     }
 }
