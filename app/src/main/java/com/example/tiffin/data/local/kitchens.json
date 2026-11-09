@@ -1,0 +1,206 @@
+[
+  {
+    "id": 1,
+    "name": "Sharma Ji Ka Tiffin",
+    "cuisine": "North Indian",
+    "pricePerTiffin": 80,
+    "isVeg": true,
+    "rating": 4.5,
+    "weeklyMenu": {
+      "Monday": "Aloo Paratha, Curd, Pickle",
+      "Tuesday": "Rajma Chawal",
+      "Wednesday": "Dal Makhani, Roti, Rice",
+      "Thursday": "Chole Bhature",
+      "Friday": "Paneer Butter Masala, Roti",
+      "Saturday": "Kadhi Pakora, Rice",
+      "Sunday": "Veg Pulao, Raita"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Amma's South Kitchen",
+    "cuisine": "South Indian",
+    "pricePerTiffin": 90,
+    "isVeg": true,
+    "rating": 4.7,
+    "weeklyMenu": {
+      "Monday": "Idli, Sambar, Chutney",
+      "Tuesday": "Masala Dosa",
+      "Wednesday": "Lemon Rice, Curd",
+      "Thursday": "Veg Biryani, Raita",
+      "Friday": "Sambar Rice, Papad",
+      "Saturday": "Uttapam, Coconut Chutney",
+      "Sunday": "Pongal, Sambar"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Punjab Da Swad",
+    "cuisine": "Punjabi",
+    "pricePerTiffin": 110,
+    "isVeg": true,
+    "rating": 4.8,
+    "weeklyMenu": {
+      "Monday": "Shahi Paneer, Roti",
+      "Tuesday": "Chole Rice",
+      "Wednesday": "Dal Tadka, Jeera Rice",
+      "Thursday": "Matar Paneer, Roti",
+      "Friday": "Amritsari Chole, Kulcha",
+      "Saturday": "Kadhi Chawal",
+      "Sunday": "Paneer Pulao, Raita"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Raju Bhai Non Veg Tiffin",
+    "cuisine": "North Indian Non-Veg",
+    "pricePerTiffin": 130,
+    "isVeg": false,
+    "rating": 4.4,
+    "weeklyMenu": {
+      "Monday": "Chicken Curry, Rice",
+      "Tuesday": "Egg Curry, Roti",
+      "Wednesday": "Chicken Biryani",
+      "Thursday": "Chicken Masala, Roti",
+      "Friday": "Egg Fried Rice",
+      "Saturday": "Butter Chicken, Naan",
+      "Sunday": "Chicken Pulao, Raita"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Gujarati Rasoi",
+    "cuisine": "Gujarati",
+    "pricePerTiffin": 85,
+    "isVeg": true,
+    "rating": 4.6,
+    "weeklyMenu": {
+      "Monday": "Gujarati Dal, Roti, Rice",
+      "Tuesday": "Sev Tamatar, Roti",
+      "Wednesday": "Thepla, Curd",
+      "Thursday": "Undhiyu, Puri",
+      "Friday": "Kadhi Khichdi",
+      "Saturday": "Aloo Sabzi, Roti",
+      "Sunday": "Veg Pulao, Kadhi"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Maa Ke Haath Ka Khana",
+    "cuisine": "Homestyle Indian",
+    "pricePerTiffin": 75,
+    "isVeg": true,
+    "rating": 4.9,
+    "weeklyMenu": {
+      "Monday": "Aloo Gobi, Roti, Dal",
+      "Tuesday": "Mix Veg, Rice",
+      "Wednesday": "Bhindi Masala, Roti",
+      "Thursday": "Dal Chawal, Papad",
+      "Friday": "Lauki Kofta, Roti",
+      "Saturday": "Aloo Matar, Rice",
+      "Sunday": "Special Thali"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Hyderabadi Zaika",
+    "cuisine": "Hyderabadi",
+    "pricePerTiffin": 140,
+    "isVeg": false,
+    "rating": 4.7,
+    "weeklyMenu": {
+      "Monday": "Chicken Dum Biryani",
+      "Tuesday": "Chicken Korma, Roti",
+      "Wednesday": "Egg Biryani",
+      "Thursday": "Chicken 65, Rice",
+      "Friday": "Hyderabadi Chicken Curry",
+      "Saturday": "Mutton Biryani",
+      "Sunday": "Chicken Dum Biryani, Raita"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Marwadi Bhojanalaya",
+    "cuisine": "Rajasthani",
+    "pricePerTiffin": 95,
+    "isVeg": true,
+    "rating": 4.5,
+    "weeklyMenu": {
+      "Monday": "Dal Baati Churma",
+      "Tuesday": "Gatte Ki Sabzi, Roti",
+      "Wednesday": "Ker Sangri, Roti",
+      "Thursday": "Papad Ki Sabzi, Rice",
+      "Friday": "Besan Gatta, Roti",
+      "Saturday": "Panchmel Dal, Baati",
+      "Sunday": "Rajasthani Thali"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Bengali Food Corner",
+    "cuisine": "Bengali",
+    "pricePerTiffin": 120,
+    "isVeg": false,
+    "rating": 4.3,
+    "weeklyMenu": {
+      "Monday": "Fish Curry, Rice",
+      "Tuesday": "Egg Curry, Rice",
+      "Wednesday": "Chicken Kosha, Rice",
+      "Thursday": "Fish Fry, Rice",
+      "Friday": "Egg Roll, Salad",
+      "Saturday": "Chicken Curry, Rice",
+      "Sunday": "Fish Biryani"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Annapurna Veg Meals",
+    "cuisine": "Pure Vegetarian",
+    "pricePerTiffin": 70,
+    "isVeg": true,
+    "rating": 4.6,
+    "weeklyMenu": {
+      "Monday": "Dal Fry, Roti, Rice",
+      "Tuesday": "Aloo Paratha, Curd",
+      "Wednesday": "Veg Pulao, Raita",
+      "Thursday": "Chana Masala, Roti",
+      "Friday": "Paneer Bhurji, Roti",
+      "Saturday": "Kadhi Chawal",
+      "Sunday": "Special Veg Thali"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Kerala Spice Kitchen",
+    "cuisine": "Kerala",
+    "pricePerTiffin": 125,
+    "isVeg": false,
+    "rating": 4.5,
+    "weeklyMenu": {
+      "Monday": "Kerala Chicken Curry, Rice",
+      "Tuesday": "Appam, Egg Curry",
+      "Wednesday": "Fish Curry, Rice",
+      "Thursday": "Chicken Roast, Parotta",
+      "Friday": "Egg Roast, Rice",
+      "Saturday": "Fish Fry, Rice",
+      "Sunday": "Malabar Chicken Biryani"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Dilli Wala Tadka",
+    "cuisine": "Delhi Street Food",
+    "pricePerTiffin": 100,
+    "isVeg": true,
+    "rating": 4.4,
+    "weeklyMenu": {
+      "Monday": "Chole Rice",
+      "Tuesday": "Pav Bhaji",
+      "Wednesday": "Aloo Puri",
+      "Thursday": "Kadhi Chawal",
+      "Friday": "Paneer Roll",
+      "Saturday": "Rajma Chawal",
+      "Sunday": "Special Delhi Thali"
+    }
+  }
+]
