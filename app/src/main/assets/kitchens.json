@@ -6,6 +6,7 @@
     "pricePerTiffin": 80,
     "isVeg": true,
     "rating": 4.5,
+    "distanceKm": 0.8,
     "weeklyMenu": {
       "Monday": "Aloo Paratha, Curd, Pickle",
       "Tuesday": "Rajma Chawal",
@@ -23,6 +24,7 @@
     "pricePerTiffin": 90,
     "isVeg": true,
     "rating": 4.7,
+    "distanceKm": 1.8,
     "weeklyMenu": {
       "Monday": "Idli, Sambar, Chutney",
       "Tuesday": "Masala Dosa",
@@ -40,6 +42,7 @@
     "pricePerTiffin": 110,
     "isVeg": true,
     "rating": 4.8,
+    "distanceKm": 2.0,
     "weeklyMenu": {
       "Monday": "Shahi Paneer, Roti",
       "Tuesday": "Chole Rice",
@@ -57,6 +60,7 @@
     "pricePerTiffin": 130,
     "isVeg": false,
     "rating": 4.4,
+    "distanceKm": 2.8,
     "weeklyMenu": {
       "Monday": "Chicken Curry, Rice",
       "Tuesday": "Egg Curry, Roti",
@@ -74,6 +78,7 @@
     "pricePerTiffin": 85,
     "isVeg": true,
     "rating": 4.6,
+    "distanceKm": 1.5,
     "weeklyMenu": {
       "Monday": "Gujarati Dal, Roti, Rice",
       "Tuesday": "Sev Tamatar, Roti",
@@ -91,6 +96,7 @@
     "pricePerTiffin": 75,
     "isVeg": true,
     "rating": 4.9,
+    "distanceKm": 2.6,
     "weeklyMenu": {
       "Monday": "Aloo Gobi, Roti, Dal",
       "Tuesday": "Mix Veg, Rice",
@@ -107,6 +113,7 @@
     "cuisine": "Hyderabadi",
     "pricePerTiffin": 140,
     "isVeg": false,
+    "distanceKm": 4.0,
     "rating": 4.7,
     "weeklyMenu": {
       "Monday": "Chicken Dum Biryani",
@@ -125,6 +132,7 @@
     "pricePerTiffin": 95,
     "isVeg": true,
     "rating": 4.5,
+    "distanceKm": 3.8,
     "weeklyMenu": {
       "Monday": "Dal Baati Churma",
       "Tuesday": "Gatte Ki Sabzi, Roti",
@@ -142,6 +150,7 @@
     "pricePerTiffin": 120,
     "isVeg": false,
     "rating": 4.3,
+    "distanceKm": 0.3,
     "weeklyMenu": {
       "Monday": "Fish Curry, Rice",
       "Tuesday": "Egg Curry, Rice",
@@ -159,6 +168,7 @@
     "pricePerTiffin": 70,
     "isVeg": true,
     "rating": 4.6,
+    "distanceKm": 1.1,
     "weeklyMenu": {
       "Monday": "Dal Fry, Roti, Rice",
       "Tuesday": "Aloo Paratha, Curd",
@@ -176,6 +186,7 @@
     "pricePerTiffin": 125,
     "isVeg": false,
     "rating": 4.5,
+    "distanceKm": 1.9,
     "weeklyMenu": {
       "Monday": "Kerala Chicken Curry, Rice",
       "Tuesday": "Appam, Egg Curry",
@@ -193,6 +204,7 @@
     "pricePerTiffin": 100,
     "isVeg": true,
     "rating": 4.4,
+    "distanceKm": 2.0,
     "weeklyMenu": {
       "Monday": "Chole Rice",
       "Tuesday": "Pav Bhaji",

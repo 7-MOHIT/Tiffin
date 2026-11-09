@@ -10,5 +10,6 @@ data class Kitchen(
     val pricePerTiffin: Int,
     val isVeg: Boolean,
     val rating: Double,
+    val distanceKm: Double,
     val weeklyMenu: Map<String, String>
 )
