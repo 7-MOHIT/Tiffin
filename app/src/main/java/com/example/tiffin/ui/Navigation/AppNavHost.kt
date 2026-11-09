@@ -30,7 +30,10 @@ fun AppNavHost() {
                 factory = factory
             )
             HomeScreen(
-                viewModel = kitchenViewModel
+                viewModel = kitchenViewModel,
+                onKitchenClick = { kitchenId ->
+                    navController.navigate("kitchen/$kitchenId")
+                }
             )
         }
     }
